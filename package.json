@@ -1,0 +1,43 @@
+{
+  "name": "cyclex",
+  "version": "1.0.0",
+  "description": "CycleX Ecommerce Site",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:seed": "node backend/seeder",
+    "data:delete": "node backend/seeder -d",
+    "debug": "node backend/debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nover-WD/fswd-nover.git"
+  },
+  "homepage": "https://github.com/Nover-WD/fswd-nover#readme",
+  "author": "Nover Garin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nover-WD/fswd-nover/issues"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.9",
+    "nodemailer": "^6.7.5"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
