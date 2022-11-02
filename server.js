@@ -24,6 +24,11 @@ const port = process.env.PORT || 8000;
 //parse json format that goes here to object
 app.use(express.json());
 
+/*Heroku Production*/
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"))
+}
+
 // Server Home
 app.get("/", (req, res) => {
     res.send("Authorized");
@@ -55,9 +60,5 @@ app.use(serverError);
 //     res.json(order);
 // })
 
-/*Heroku Production*/
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static("client/build"))
-}
 
 app.listen(port, console.log(`Server is running on ${port}`));
