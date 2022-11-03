@@ -29,10 +29,10 @@ if (process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
 }
 
-// Server Home
-app.get("/", (req, res) => {
-    res.send("Authorized");
-});
+// // Server Home
+// app.get("/", (req, res) => {
+//     res.send("Authorized");
+// });
 
 // Fetch Items
 app.use("/api/v1/items/", itemRoutes);
