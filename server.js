@@ -24,16 +24,16 @@ const port = process.env.PORT || 8000;
 //parse json format that goes here to object
 app.use(express.json());
 
-// /*Heroku Production*/
-// if (process.env.NODE_ENV === 'production'){
-//     app.use(express.static('client/build'))
-// }
+/*Heroku Production*/
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+}
 
 // Server Home
-app.get("/", (req, res) => {
-    app.use(express.static('client/build'))
-    // res.send("Authorized");
-});
+// app.get("/", (req, res) => {
+//     app.use(express.static('client/build'))
+//     // res.send("Authorized");
+// });
 
 // Fetch Items
 app.use("/api/v1/items/", itemRoutes);
