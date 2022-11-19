@@ -13,6 +13,7 @@ import Item from "./components/item";
 import Profile from "./components/pages/Profile";
 import AdminPanel from "./components/pages/AdminPanel";
 import Shop from "./components/pages/Shop";
+import About from "./components/pages/About";
 
 export default function App(){
   return (
@@ -32,6 +33,8 @@ export default function App(){
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/shop" element={<Shop/>} />
                 <Route path="/admin" element={<AdminPanel/>}/>
+                <Route path="/about-the-developer" element={<About/>}/>
+                <Route path="*" element={<Landing/>}/>
               </Routes>
             </Box>
           </ThemeProvider>

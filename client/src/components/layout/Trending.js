@@ -57,7 +57,7 @@ export default function Trending({title}){
 
     
     return(
-        <Box id="top-products">
+        <Box className="boxed" id="top-products">
             {isLoading ? (
                 <Loader />
             ): error ? (

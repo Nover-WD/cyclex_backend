@@ -62,7 +62,7 @@ export default function SignInForm(){
                     <img src="/assets/img/CycleX-Logo.png" width="150px" style={{margin: "auto", display:"block"}} alt="CycleX Logo" title="CycleX - Home"/>
                 </Link>
                 <Typography variant="h3" textAlign="center" sx={{padding: "30px 0px"}}>
-                    SIGN BACK IN
+                    SIGN IN
                 </Typography>
                 <Box component="form" noValidate autoComplete="off" onSubmit={(event) => handleSubmit(event)}>
                     <Stack spacing={2}>

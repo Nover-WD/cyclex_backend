@@ -46,6 +46,7 @@ export default function PrimaryMenu(){
     const { userInfo } = userLogin;
     const dispatch = useDispatch();
 
+
     const handleLogout = () => {
       dispatch(removeCartItems());
       dispatch(logout());
@@ -58,7 +59,7 @@ export default function PrimaryMenu(){
     }, [userInfo, dispatch]);
 
     return(
-          <AppBar position="static" sx={{padding: "10px 0px", boxShadow:"none"}} color="transparent">
+          <AppBar className="boxed" position="static" sx={{padding: "10px 0px", boxShadow:"none"}} color="transparent">
               <Toolbar className={classes.toolbar}>
                   <Box>
                   <Link to="/">
@@ -88,13 +89,17 @@ export default function PrimaryMenu(){
                         )}
                       </MenuItem> 
                       <MenuItem onClick={handleClose}>
+                        { userInfo ? userInfo.isAdmin ? (
+                          <Link to="/admin">Admin</Link> ) : null
+                        : null }
+                      </MenuItem>
+                      <MenuItem onClick={handleClose}>
                         { userInfo ? (
                           <Link to="#" onClick={handleLogout}>Logout</Link>
                         ) : (
                           <Link to="/signup">Sign up</Link>
                         )}
                       </MenuItem> 
-
                    </Menu>
                    <Link to="/shop" title="Go to Shop">
                       <Button>

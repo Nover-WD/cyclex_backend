@@ -55,5 +55,8 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
+  },
+  "resolutions": {
+    "react-scripts/eslint-webpack-plugin": "2.3.0"
   }
 }

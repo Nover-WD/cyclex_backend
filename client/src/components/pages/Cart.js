@@ -92,7 +92,7 @@ const Cart = () => {
         <>
         <TopBanner/>
         <PrimaryMenu/>
-        <Box>
+        <Box className="boxed">
             {cartItems.length === 0 ? (
                 <Box>
                 < BackButton />

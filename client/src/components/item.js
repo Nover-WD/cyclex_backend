@@ -87,7 +87,7 @@ const Item = () => {
         <>
         <TopBanner/>
         <PrimaryMenu/>
-        <Box>
+        <Box className="boxed">
         { isLoading ? (
             <Loader/>
         ): error ? (
@@ -190,9 +190,9 @@ const Item = () => {
                         >
                             Add to Cart
                         </Button>
-                        <Button startIcon={<ShoppingCartCheckoutIcon/>} variant="contained">
+                        {/* <Button startIcon={<ShoppingCartCheckoutIcon/>} variant="contained">
                             Buy Now
-                        </Button>
+                        </Button> */}
                         </Stack>
                     </Box>
                 </Grid>

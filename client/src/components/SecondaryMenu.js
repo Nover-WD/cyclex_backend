@@ -20,7 +20,7 @@ export default function SecondaryMenu(){
     const { userInfo } = userLogin;
 
     return(
-        <Grid container color="secondary.light" rowSpacing={5}>
+        <Grid container color="secondary.light" rowSpacing={5} className="boxed" sx={{"justify-content": "center"}}>
             <Grid item xs={12} sm={6} md={4} xl={3}>
             <Link to="/" >
             <img style={{width: "200px", backgroundColor: '#fff'}} src="/assets/img/CycleX-Logo.png" alt="CycleX Logo" title="CycleX - Home"/>
@@ -61,21 +61,21 @@ export default function SecondaryMenu(){
                 </ListItemText>
                 <Typography>
                 <ListItem>
-                    <Link to="shop" title="Go to Shop">
+                    <Link to="/shop" title="Go to Shop">
                         Shop
                     </Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="#">
+                    <Link to="/about-the-developer">
                         About the Developer
                     </Link>
                 </ListItem>
                 </Typography>
             </List>
             </Grid>
-            <Grid item xs={12} sm={6} md={4} xl={3}>
+            {/* <Grid item xs={12} sm={6} md={4} xl={3}>
                 <SocialMedia/>
-            </Grid>
+            </Grid> */}
         </Grid>
     )
 }
