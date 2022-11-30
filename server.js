@@ -26,7 +26,10 @@ app.use(express.json());
 
 /*Heroku Production*/
 if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'))
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join('client/build', 'index.html'));
+      });
 }
 
 // Server Home
@@ -35,14 +38,6 @@ if (process.env.NODE_ENV === 'production'){
 //     // res.send("Authorized");
 // });
 
-//Refresh Page Solution
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build/index.html'),function(err) {
-      if (err) {
-        res.status(500).send(__dirname)
-      }
-    })
-});
 
 // // Fetch Items
 // app.use("/api/v1/items/", itemRoutes);
