@@ -36,24 +36,27 @@ if (process.env.NODE_ENV === 'production'){
 // });
 
 //Refresh Page Solution
-isProduction &&
-  app.get("*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'path/to/your/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
   });
 
-// Fetch Items
-app.use("/api/v1/items/", itemRoutes);
+// // Fetch Items
+// app.use("/api/v1/items/", itemRoutes);
 
-app.use("/api/v1/orders/", orderRoutes);
+// app.use("/api/v1/orders/", orderRoutes);
 
-app.use("/api/v1/users/", userRoutes);
+// app.use("/api/v1/users/", userRoutes);
 
-app.use("/api/v1/cart/", cartRoutes)
+// app.use("/api/v1/cart/", cartRoutes)
 
 
-//Error Handlers
-app.use(notFound);
-app.use(serverError);
+// //Error Handlers
+// app.use(notFound);
+// app.use(serverError);
 
 // // Fetch Orders
 // app.get("/api/v1/orders", (req, res) => {
