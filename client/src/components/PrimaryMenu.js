@@ -66,7 +66,7 @@ export default function PrimaryMenu(){
                   <img style={{width: "200px"}} src="/assets/img/CycleX-Logo.png" alt="CycleX Logo" title="CycleX - Home"/>
                   </Link>
                   </Box>
-                  <Stack direction="row" spacing={{xs: 8, sm: 3 }}>
+                  <Stack direction="row" className="cus-navBar" spacing={{xs: 8, sm: 3 }}>
                     <Button
                     id="basic-button"
                     onClick={handleClick}
