@@ -27,23 +27,11 @@ app.use(express.json());
 /*Heroku Production*/
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join('client/build', 'index.html'));
+      });
 }
 
-// List of all the files that should be served as-is
-let protection = ['transformed.js', 'main.css', 'favicon.ico']
-
-app.get("*", (req, res) => {
-
-  let path = req.params['0'].substring(1)
-
-  if (protection.includes(path)) {
-    // Return the actual file
-    res.sendFile(`${__dirname}/client/build/${path}`);
-  } else {
-    // Otherwise, redirect to /build/index.html
-    res.sendFile(`${__dirname}/client/build/index.html`);
-  }
-});
 
 // Server Home
 // app.get("/", (req, res) => {
@@ -52,19 +40,19 @@ app.get("*", (req, res) => {
 // });
 
 
-// // Fetch Items
-// app.use("/api/v1/items/", itemRoutes);
+// Fetch Items
+app.use("/api/v1/items/", itemRoutes);
 
-// app.use("/api/v1/orders/", orderRoutes);
+app.use("/api/v1/orders/", orderRoutes);
 
-// app.use("/api/v1/users/", userRoutes);
+app.use("/api/v1/users/", userRoutes);
 
-// app.use("/api/v1/cart/", cartRoutes)
+app.use("/api/v1/cart/", cartRoutes)
 
 
-// //Error Handlers
-// app.use(notFound);
-// app.use(serverError);
+//Error Handlers
+app.use(notFound);
+app.use(serverError);
 
 // // Fetch Orders
 // app.get("/api/v1/orders", (req, res) => {
