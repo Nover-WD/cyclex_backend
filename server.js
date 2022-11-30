@@ -35,6 +35,11 @@ if (process.env.NODE_ENV === 'production'){
 //     // res.send("Authorized");
 // });
 
+//Refresh Page Solution
+isProduction &&
+  app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  });
 
 // Fetch Items
 app.use("/api/v1/items/", itemRoutes);
@@ -64,12 +69,3 @@ app.use(serverError);
 
 app.listen(port, console.log(`Server is running on ${port}`));
 
-
-//Refresh Page Solution
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '/build/index.html'),function(err) {
-      if (err) {
-        res.status(500).send(__dirname)
-      }
-    }) 
-});

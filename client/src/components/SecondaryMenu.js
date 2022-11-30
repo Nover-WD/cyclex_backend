@@ -65,11 +65,6 @@ export default function SecondaryMenu(){
                         Shop
                     </Link>
                 </ListItem>
-                <ListItem>
-                    <Link to="/about-the-developer">
-                        About the Developer
-                    </Link>
-                </ListItem>
                 </Typography>
             </List>
             </Grid>
