@@ -31,7 +31,7 @@ app.use(express.json());
 
 // Server Home
 app.get("/", (req, res) => {
-    res.send("Authorized");
+    res.send("Your Authorized");
 });
 
 
