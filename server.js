@@ -25,18 +25,14 @@ const port = process.env.PORT || 8000;
 app.use(express.json());
 
 /*Heroku Production*/
-if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'));
-    // app.get('*', (req, res) => {
-    //     res.sendFile(path.join('client/build', 'index.html'));
-    //   });
-}
+// if (process.env.NODE_ENV === 'production'){
+//     app.use(express.static('client/build'));
+// }
 
 // Server Home
-// app.get("/", (req, res) => {
-//     app.use(express.static('client/build'))
-//     // res.send("Authorized");
-// });
+app.get("/", (req, res) => {
+    res.send("Authorized");
+});
 
 
 // Fetch Items

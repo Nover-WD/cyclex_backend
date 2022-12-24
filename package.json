@@ -10,6 +10,7 @@
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"nodemon server.js\" \"npm run client\"",
     "data:seed": "node backend/seeder",
